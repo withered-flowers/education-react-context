@@ -4,10 +4,16 @@ import router from "./routers/route";
 import { Provider } from "react-redux";
 import store from "./stores/store";
 
+import { LanguageProvider, ThemeProvider } from "./contexts/context";
+
 function App() {
   return (
     <Provider store={store}>
-      <RouterProvider router={router} />
+      <ThemeProvider>
+        <LanguageProvider>
+          <RouterProvider router={router} />
+        </LanguageProvider>
+      </ThemeProvider>
     </Provider>
   );
 }

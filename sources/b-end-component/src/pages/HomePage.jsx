@@ -8,7 +8,6 @@ import TableSection from "../components/TableSection";
 import FooterSection from "../components/FooterSection";
 import SelectOptions from "../components/SelectOptions";
 
-import { LanguageProvider, ThemeProvider } from "../contexts/context";
 import MainContainer from "../components/MainContainer";
 
 const HomePage = () => {
@@ -24,13 +23,9 @@ const HomePage = () => {
   if (isLoading) {
     return (
       <>
-        <LanguageProvider>
-          <ThemeProvider>
-            <MainContainer>
-              <h1 className="p-4 animate-pulse">Loading...</h1>
-            </MainContainer>
-          </ThemeProvider>
-        </LanguageProvider>
+        <MainContainer>
+          <h1 className="p-4 animate-pulse">Loading...</h1>
+        </MainContainer>
       </>
     );
   }
@@ -38,33 +33,25 @@ const HomePage = () => {
   if (isError) {
     return (
       <>
-        <LanguageProvider>
-          <ThemeProvider>
-            <MainContainer>
-              <h1 className="p-4">{errorMessage}</h1>
-            </MainContainer>
-          </ThemeProvider>
-        </LanguageProvider>
+        <MainContainer>
+          <h1 className="p-4">{errorMessage}</h1>
+        </MainContainer>
       </>
     );
   }
 
   return (
     <>
-      <LanguageProvider>
-        <ThemeProvider>
-          <MainContainer>
-            {/* Select Options */}
-            <SelectOptions />
-            {/* Headers */}
-            <HeaderSection />
-            {/* Content */}
-            <TableSection albums={albums} />
-            {/* Footer */}
-            <FooterSection />
-          </MainContainer>
-        </ThemeProvider>
-      </LanguageProvider>
+      <MainContainer>
+        {/* Select Options */}
+        <SelectOptions />
+        {/* Headers */}
+        <HeaderSection />
+        {/* Content */}
+        <TableSection albums={albums} />
+        {/* Footer */}
+        <FooterSection />
+      </MainContainer>
     </>
   );
 };

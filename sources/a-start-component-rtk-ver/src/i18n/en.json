@@ -1,0 +1,5 @@
+{
+  "tableName": "Table Albums",
+  "tableDesc": "This is album table which fetch data from JSONPlaceholder",
+  "footerText": "created by: withered-flowers - 2023"
+}
